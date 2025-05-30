@@ -21,7 +21,7 @@ const generateRandomRGBColor = () => {
 const generateRandomHexColor = () => {
     let hexColour;
     // Generate random hex values using Math.floor and convert it
-    // to a string and to upper case.
+    // to a string and to uppercase.
     hexColour = Math.floor(Math.random() * 0xFFFFFF).toString(16).toUpperCase();
     return `#${hexColour.padStart(6, '0')}`;
 }
