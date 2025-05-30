@@ -4,9 +4,9 @@ Here I intend to showcase my JavaScript projects that I would like to showcase. 
 
 ## Table of Contents
 
-| **Project Name**                                               |
-|----------------------------------------------------------------| 
-| [Random Background Colour Generator](#random-colour-generator) |
+| **Project Name**                                                          |
+|---------------------------------------------------------------------------| 
+| [Random Background Colour Generator](#random-background-colour-generator) |
 
 ## Projects
 
