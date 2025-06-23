@@ -69,7 +69,6 @@ checkBtn.addEventListener('click', () => {
         setBackgroundColour('#60b347'); // Set winning colour
         number.style.width = '30rem'; // increase width of number container
         number.innerText = guessedNumber; // Display the randomly chosen number
-
         // Display the highest score
         if (score > highScore) {
             highScore = score;
@@ -78,16 +77,15 @@ checkBtn.addEventListener('click', () => {
     } else if (guessedNumber !== numberToGuess) {
         if (score > 1) {
             if (!guesses.includes(guessedNumber)) {
-                guesses.push(guessedNumber);
+                guesses.push(guessedNumber); // Store a guessed number so a user only guesses once
                 displayMessage(guessedNumber > numberToGuess ?
                     '🔺 Too high. Guess lower! 🔽' : '🔻 Too low. Guess higher! 🔼');
                 score--; // Print an appropriate message and decrease the score by 1
                 scoreElement.innerText = score; // Display the new score
-                // If the guessed number is greater than the number to guess
-                setBackgroundColour('#c1121f');
+                setBackgroundColour('#c1121f'); // Display a colour signalling an incorrect guess
                 setTimeout(() => {
                     setBackgroundColour('');
-                }, 300);
+                }, 300); // revert to original colour after .3 seconds
             } else {
                 displayMessage('You already guessed this number. 😁');
             }
@@ -98,8 +96,6 @@ checkBtn.addEventListener('click', () => {
             scoreElement.innerText = 0;
         }
     }
-    // Reset the input value to blank after a guess is made
-    // inputGuess.value = '';
 })
 
 // Listen for the click event on the "Again!" button
