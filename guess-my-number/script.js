@@ -3,18 +3,6 @@
 // Enabled Strict Mode
 'use strict';
 
-// Generate a random number between 1 and 20
-const randomiseNumber = function () {
-    return Math.trunc(Math.random() * 20) + 1;
-}
-
-// Store the randomly generated number in a variable.
-let numberToGuess = randomiseNumber();
-
-// Set default score and high score
-let score = 20;
-let highScore = 0;
-
 /** =================================
  * Element Retrieval & Default values
  * ================================== */
@@ -33,11 +21,37 @@ const originalNumberContent = number.innerText;
 const originalMsgContent = guessMsg.textContent;
 
 /** ====================
+ * Functionality
+ * ===================== */
+
+// Generate a random number between 1 and 20
+const randomiseNumber = function () {
+    return Math.trunc(Math.random() * 20) + 1;
+}
+
+// Store the randomly generated number in a variable.
+let numberToGuess = randomiseNumber();
+
+// Set default score and high score
+let score = 20;
+let highScore = 0;
+
+// Display a message
+const displayMessage = function (message) {
+    guessMsg.textContent = message;
+}
+
+// Set background colour for the body of the document
+const setBackgroundColour = function (colour) {
+    bodyElem.style.backgroundColor = colour;
+}
+
+/** ====================
  * Handling Click Events
  * ===================== */
 
 // Create an array to store the incorrect numbers guessed by the user.
-const guesses = [];
+let guesses = [];
 
 // Listen for the click event on checkBtn
 checkBtn.addEventListener('click', () => {
@@ -46,14 +60,13 @@ checkBtn.addEventListener('click', () => {
 
     // If the score is greater than 1, keep decreases the score for each incorrect guess made
     // If no guess is made and the check button is clicked, print a message notifying the user
-    if (!guessedNumber) {
-        guessMsg.textContent = '🚫 No number guessed!';
-    }
-        // If a guess is made, write logic to execute depending on the choice made
+    // If a guess is made, write logic to execute depending on the choice made
     // If the guessed number is strictly equal to the number to guess (i.e. the player wins)
-    else if (guessedNumber === numberToGuess) {
-        guessMsg.textContent = '🎉 You guessed it right! Woohoo!'; // Display winning text
-        bodyElem.style.backgroundColor = '#60b347'; // Set winning color
+    if (!guessedNumber) {
+        displayMessage('🚫 No number guessed!');
+    } else if (guessedNumber === numberToGuess) {
+        displayMessage('🎉 You guessed it right! Woohoo!'); // Display winning text
+        setBackgroundColour('#60b347'); // Set winning colour
         number.style.width = '30rem'; // increase width of number container
         number.innerText = guessedNumber; // Display the randomly chosen number
 
@@ -66,38 +79,41 @@ checkBtn.addEventListener('click', () => {
         if (score > 1) {
             if (!guesses.includes(guessedNumber)) {
                 guesses.push(guessedNumber);
-                guessMsg.textContent = '🔻 Too low. Guess higher! ⬆';
+                displayMessage(guessedNumber > numberToGuess ?
+                    '🔺 Too high. Guess lower! 🔽' : '🔻 Too low. Guess higher! 🔼');
                 score--; // Print an appropriate message and decrease the score by 1
                 scoreElement.innerText = score; // Display the new score
                 // If the guessed number is greater than the number to guess
-                bodyElem.style.backgroundColor = '#c1121f';
+                setBackgroundColour('#c1121f');
                 setTimeout(() => {
-                    bodyElem.style.backgroundColor = ''
+                    setBackgroundColour('');
                 }, 300);
             } else {
-                guessMsg.textContent = 'You already guessed this number. 😁';
+                displayMessage('You already guessed this number. 😁');
             }
         } else {
             // On the final guess attempt, display a message saying the user lost the game.
             // Also, set score to 0
-            guessMsg.textContent = '😿 You lose...';
+            displayMessage('😿 You lose...');
             scoreElement.innerText = 0;
         }
     }
     // Reset the input value to blank after a guess is made
-    inputGuess.value = '';
+    // inputGuess.value = '';
 })
 
+// Listen for the click event on the "Again!" button
 playAgain.addEventListener('click', () => {
     // Reset content to page defaults.
     number.innerText = originalNumberContent; // return to the question mark text
     number.style.width = ''; // reset width
-    bodyElem.style.backgroundColor = ''; // reset background colour
+    setBackgroundColour(''); // reset background colour
     inputGuess.value = ''; // reset user input value
     score = 20; // reset score
     scoreElement.innerText = score; // reset score display
-    guessMsg.textContent = originalMsgContent; // Reset to the starting message
+    displayMessage(originalMsgContent); // Reset to the starting message
     numberToGuess = randomiseNumber(); // Generate a random number
+    guesses = []; // Reset the guesses to 0
 })
 
 
