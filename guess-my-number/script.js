@@ -79,6 +79,7 @@ checkBtn.addEventListener('click', () => {
             highScoreElement.innerText = highScore;
         }
     } else if (guessedNumber !== numberToGuess) {
+        // Make sure that all guesses made are within the given range of numbers.
         if (!(guessedNumber > highestGuess) && !(guessedNumber < lowestGuess)) {
             if (score > 1) {
                 if (!guesses.includes(guessedNumber)) {
@@ -101,7 +102,7 @@ checkBtn.addEventListener('click', () => {
                 scoreElement.innerText = 0;
             }
         } else {
-            displayMessage(`‼ Guess is out of range! Please guess a number between ${lowestGuess} and ${highestGuess}.`);
+            displayMessage(`❗ Guess is out of range! Please guess a number between ${lowestGuess} and ${highestGuess}.`);
         }
     }
 })
