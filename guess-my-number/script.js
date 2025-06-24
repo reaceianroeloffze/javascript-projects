@@ -71,7 +71,7 @@ checkBtn.addEventListener('click', () => {
     } else if (guessedNumber === numberToGuess) {
         displayMessage('🎉 You guessed it right! Woohoo!'); // Display winning text
         setBackgroundColour('#60b347'); // Set winning colour
-        number.style.width = '30rem'; // increase width of number container
+        number.style.width = '25rem'; // increase width of number container
         number.innerText = guessedNumber; // Display the randomly chosen number
         // Display the highest score
         if (score > highScore) {

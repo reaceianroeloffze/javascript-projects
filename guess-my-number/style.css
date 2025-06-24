@@ -139,10 +139,26 @@ h1 {
     margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 1000px) {
+
+    .end-position {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .again {
+        grid-column: 1/2    ;
+    }
+
+    .between {
+        grid-column: 5/-1;
+    }
+
+}
+
 @media screen and (max-width: 760px) {
 
     html {
-        font-size: initial;
+        font-size: 12px;
     }
 
     header {
@@ -182,7 +198,7 @@ h1 {
     }
 
     .number {
-        width: 10rem;
+        width: 15rem;
     }
 
     main {
@@ -207,7 +223,6 @@ h1 {
         display: block;
         margin: 2rem auto;
         width: 70%;
-
     }
 
     .message {
@@ -220,10 +235,6 @@ h1 {
 
     .btn, .label-score, .message, .label-high-score {
         font-size: 1.2rem;
-    }
-
-    .guess, .number {
-        font-size: 2.5rem;
     }
 
 }
