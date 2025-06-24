@@ -32,6 +32,10 @@ const randomiseNumber = function () {
 // Store the randomly generated number in a variable.
 let numberToGuess = randomiseNumber();
 
+// Set the lowest and highest values a user can guess
+let lowestGuess = 1;
+let highestGuess = 20;
+
 // Set default score and high score
 let score = 20;
 let highScore = 0;
@@ -75,25 +79,29 @@ checkBtn.addEventListener('click', () => {
             highScoreElement.innerText = highScore;
         }
     } else if (guessedNumber !== numberToGuess) {
-        if (score > 1) {
-            if (!guesses.includes(guessedNumber)) {
-                guesses.push(guessedNumber); // Store a guessed number so a user only guesses once
-                displayMessage(guessedNumber > numberToGuess ?
-                    '🔺 Too high. Guess lower! 🔽' : '🔻 Too low. Guess higher! 🔼');
-                score--; // Print an appropriate message and decrease the score by 1
-                scoreElement.innerText = score; // Display the new score
-                setBackgroundColour('#c1121f'); // Display a colour signalling an incorrect guess
-                setTimeout(() => {
-                    setBackgroundColour('');
-                }, 300); // revert to original colour after .3 seconds
+        if (!(guessedNumber > highestGuess) && !(guessedNumber < lowestGuess)) {
+            if (score > 1) {
+                if (!guesses.includes(guessedNumber)) {
+                    guesses.push(guessedNumber); // Store a guessed number so a user only guesses once
+                    displayMessage(guessedNumber > numberToGuess ?
+                        '🔺 Too high. Guess lower! 🔽' : '🔻 Too low. Guess higher! 🔼');
+                    score--; // Print an appropriate message and decrease the score by 1
+                    scoreElement.innerText = score; // Display the new score
+                    setBackgroundColour('#c1121f'); // Display a colour signalling an incorrect guess
+                    setTimeout(() => {
+                        setBackgroundColour('');
+                    }, 300); // revert to original colour after .3 seconds
+                } else {
+                    displayMessage('You already guessed this number. 😁');
+                }
             } else {
-                displayMessage('You already guessed this number. 😁');
+                // On the final guess attempt, display a message saying the user lost the game.
+                // Also, set score to 0
+                displayMessage('😿 You lose...');
+                scoreElement.innerText = 0;
             }
         } else {
-            // On the final guess attempt, display a message saying the user lost the game.
-            // Also, set score to 0
-            displayMessage('😿 You lose...');
-            scoreElement.innerText = 0;
+            displayMessage(`‼ Guess is out of range! Please guess a number between ${lowestGuess} and ${highestGuess}.`);
         }
     }
 })
