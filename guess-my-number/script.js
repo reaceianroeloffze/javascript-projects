@@ -62,6 +62,7 @@ const handleCheckBtnEvent = function () {
 	if (!guessedNumber) {
 		displayMessage('🚫 No number guessed!');
 	} else if (guessedNumber === numberToGuess) {
+		inputGuess.setAttribute('readonly', 'true');
 		displayMessage('🎉 You guessed it right! Woohoo!'); // Display winning text
 		setBackgroundColour('#60b347'); // Set winning colour
 		number.style.width = '20rem'; // increase width of number container
@@ -123,8 +124,6 @@ let guesses = [];
 
 // Listen for the click event on checkBtn
 checkBtn.addEventListener('click', handleCheckBtnEvent);
-
-
 
 // Listen for the click event on the "Again!" button
 playAgain.addEventListener('click', handlePlayAgainBtnEvent)
