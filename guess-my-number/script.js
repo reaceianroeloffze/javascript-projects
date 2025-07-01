@@ -124,14 +124,12 @@ let guesses = [];
 // Listen for the click event on checkBtn
 checkBtn.addEventListener('click', handleCheckBtnEvent);
 
-// Listen for the touchstart event on the checkBtn for mobile devices
-checkBtn.addEventListener('touchstart', handleCheckBtnEvent);
+
 
 // Listen for the click event on the "Again!" button
 playAgain.addEventListener('click', handlePlayAgainBtnEvent)
 
-// Listen for the touchstart on the "Again!" button for mobile devices
-playAgain.addEventListener('touchstart', handlePlayAgainBtnEvent);
+
 
 
 
