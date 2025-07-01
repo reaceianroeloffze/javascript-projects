@@ -113,7 +113,7 @@ const handlePlayAgainBtnEvent = function () {
 	displayMessage(originalMsgContent); // Reset to the starting message
 	numberToGuess = randomiseNumber(); // Generate a random number
 	guesses = []; // Reset the guesses to 0
-	inputGuess.readonly = false;
+	inputGuess.removeAttribute('readonly')
 }
 
 /** ====================
