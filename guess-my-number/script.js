@@ -126,4 +126,4 @@ let guesses = [];
 checkBtn.addEventListener('click', handleCheckBtnEvent);
 
 // Listen for the click event on the "Again!" button
-playAgain.addEventListener('click', handlePlayAgainBtnEvent)
+playAgain.addEventListener('click', handlePlayAgainBtnEvent);
