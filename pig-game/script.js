@@ -16,6 +16,13 @@ const diceImg = document.querySelector('.dice');
 const player0CurrentScoreElem = document.querySelector('#current--0');
 const player1CurrentScoreElem = document.querySelector('#current--1');
 
+// Pig game starting conditions
+playerScore0Elem.innerText = 0;
+playerScore1Elem.innerText = 0;
+diceElem.classList.add('dice__hidden');
+let playerCurrentScore = 0;
+const scores = [0, 0];
+let activePlayer = 0;
 
 
 
