@@ -24,6 +24,15 @@ let playerCurrentScore = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
+// Create a function to switch between the 2 players
+const switchToNextPlayer = function() {
+	playerCurrentScore = 0;
+	document.querySelector(`#current--${activePlayer}`).innerText = playerCurrentScore;
+	activePlayer = activePlayer === 0 ? 1 : 0;
+	player0.classList.toggle('player--active');
+	player1.classList.toggle('player--active');
+};
+
 // Roll Dice Button Functionality
 rollDiceBtn.addEventListener('click', () => {
 	// Generate a random number between 1 & 6
