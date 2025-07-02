@@ -24,5 +24,43 @@ let playerCurrentScore = 0;
 const scores = [0, 0];
 let activePlayer = 0;
 
+// Roll Dice Button Functionality
+rollDiceBtn.addEventListener('click', () => {
+	// Generate a random number between 1 & 6
+	const diceNumber = Math.trunc(Math.random() * 6) + 1;
+
+	// Remove the dice__hidden class if present
+	if (diceElem.classList.contains('dice__hidden')) {
+		diceElem.classList.remove('dice__hidden');
+	}
+	// display the rolled number
+	diceImg.src = `dice-${diceNumber}.png`;
+
+	// Check if the diceNumber = 1
+	if (diceNumber !== 1) {
+		// Check which player is active and apply dice roll to current score
+		playerCurrentScore += diceNumber;
+		document.querySelector(`#current--${activePlayer}`).innerText = playerCurrentScore;
+	} else {
+		// Switch to the next player and reset the current player's current score
+		switchToNextPlayer();
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
