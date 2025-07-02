@@ -30,14 +30,14 @@ This is a game where you have to guess a random chosen number between one and an
 
 [Guess My Number—Live Demo](https://reaceianroeloffze.github.io/javascript-projects/guess-my-number/)
 
-### [Modal Window]()
+### [Modal Window](https://github.com/reaceianroeloffze/javascript-projects/tree/Root/modal-window)
 
 A button, when clicked, will open a popup window containing text. Hitting escape, clicking outside the window, or clicking a &times; will close the window.
 
-[Modal Window—Live Demo]()
+[Modal Window—Live Demo](https://reaceianroeloffze.github.io/javascript-projects/modal-window/)
 
-### [Pig Game]()
+### [Pig Game](https://github.com/reaceianroeloffze/javascript-projects/tree/Root/pig-game)
 
 A game for two players. You take turns rolling a die. The number of the die determines your current score. Your score accumulates as you roll on. You can hold your score if you like. Choosing to hold your score ends your turn and resets your accumulated score to 0. The held score goes to your overall score. Should you roll a 1 without holding, your turn also ends and your current accumulated score is also reset. Typically, the first player to reach 100 points wins the game.
 
-[Pig Game—Live Demo]()
+[Pig Game—Live Demo](https://reaceianroeloffze.github.io/javascript-projects/pig-game/)
