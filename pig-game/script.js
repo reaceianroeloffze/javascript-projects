@@ -28,7 +28,7 @@ const initialiseGame = function() {
 	player0CurrentScoreElem.innerText = 0;
 	player1CurrentScoreElem.innerText = 0;
 
-	// State variables
+	// State
 	playerCurrentScore = 0;
 	scores = [0, 0];
 	activePlayer = 0;
@@ -48,7 +48,9 @@ initialiseGame();
 // Create a function to switch between the 2 players
 const switchToNextPlayer = function() {
 	playerCurrentScore = 0;
-	document.querySelector(`#current--${activePlayer}`).innerText = playerCurrentScore;
+	document
+		.querySelector(`#current--${activePlayer}`)
+		.innerText = playerCurrentScore;
 	activePlayer = activePlayer === 0 ? 1 : 0;
 	player0.classList.toggle('player--active');
 	player1.classList.toggle('player--active');
@@ -71,7 +73,9 @@ rollDiceBtn.addEventListener('click', () => {
 		if (diceNumber !== 1) {
 			// Check which player is active and apply dice roll to the current score
 			playerCurrentScore += diceNumber;
-			document.querySelector(`#current--${activePlayer}`).innerText = playerCurrentScore;
+			document
+				.querySelector(`#current--${activePlayer}`)
+				.innerText = playerCurrentScore;
 		} else {
 			// Switch to the next player and reset the current player's current score
 			switchToNextPlayer();
@@ -84,7 +88,9 @@ holdScoreBtn.addEventListener('click', () => {
 	if (canPlay) {
 		// Add the current score to the active player's overall score
 		scores[activePlayer] += playerCurrentScore;
-		document.querySelector(`#score--${activePlayer}`).innerText = scores[activePlayer];
+		document
+			.querySelector(`#score--${activePlayer}`)
+			.innerText = scores[activePlayer];
 
 		// Check to see if a player has reached a score of 100 or higher
 		if (scores[activePlayer] >= 100) {
