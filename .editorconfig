@@ -1,0 +1,61 @@
+root = true
+
+# generic code styles
+[*]
+indent_style = tab
+indent_size = tab
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+ij_any_space_after_comma = true
+ij_any_line_comment_add_space = true
+ij_any_line_comment_add_space_on_reformat = true
+ij_any_block_comment_at_first_column = true
+
+# html, css
+[*{.html,css}]
+ij_css_enforce_quotes_on_format = true
+ij_css_use_double_quotes = true
+ij_html_enforce_quotes = true
+ij_html_quote_style = double
+ij_css_align_closing_brace_with_properties = false
+ij_css_space_after_colon = true
+ij_html_block_comment_add_space = true
+ij_css_block_comment_add_space = true
+ij_css_keep_single_line_blocks = false
+ij_css_space_before_opening_brace = true
+# all things JS
+[*{.js,mjs}]
+# Quotes
+ij_javascript_use_double_quotes = false
+ij_javascript_force_quote_style = true
+# semicolon
+ij_javascript_force_semicolon_style = true
+ij_javascript_use_semicolon_after_statement = true
+ij_any_space_before_for_semicolon = false
+# spaces
+ij_javascript_space_before_function_left_parenth = false
+ij_any_space_before_catch_left_brace = true
+ij_any_space_before_class_left_brace = true
+ij_any_space_before_else_keyword = true
+ij_any_space_after_colon = true
+ij_javascript_space_before_async_arrow_lparen = true
+ij_any_space_before_else_left_brace = true
+ij_javascript_spaces_around_arrow_function_operator = true
+ij_any_space_before_do_left_brace = true
+ij_any_space_before_finally_left_brace = true
+ij_any_space_before_for_left_brace = true
+ij_any_space_before_if_left_brace = true
+ij_any_space_before_method_left_brace = true
+ij_any_space_before_switch_left_brace = true
+ij_any_space_before_try_left_brace = true
+ij_any_space_before_while_left_brace = true
+# max_line_length = 79
+# ij_any_block_comment_add_space = true
+# forced
+ij_any_for_brace_force = if_multiline
+ij_any_while_brace_force = if_multiline
+ij_any_if_brace_force = if_multiline
+ij_any_do_while_brace_force = if_multiline
+ij_any_align_multiline_ternary_operation = true

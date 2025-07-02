@@ -16,13 +16,34 @@ const diceImg = document.querySelector('.dice');
 const player0CurrentScoreElem = document.querySelector('#current--0');
 const player1CurrentScoreElem = document.querySelector('#current--1');
 
-// Pig game starting conditions
-playerScore0Elem.innerText = 0;
-playerScore1Elem.innerText = 0;
-diceElem.classList.add('dice__hidden');
-let playerCurrentScore = 0;
-const scores = [0, 0];
-let activePlayer = 0;
+// Initialise state variables for use in game initialise function
+let playerCurrentScore, scores, activePlayer, canPlay;
+
+// Create a function to start and initialise the pig game
+const initialiseGame = function() {
+	// Pig game starting conditions
+	// Display
+	playerScore0Elem.innerText = 0;
+	playerScore1Elem.innerText = 0;
+	player0CurrentScoreElem.innerText = 0;
+	player1CurrentScoreElem.innerText = 0;
+
+	// State variables
+	playerCurrentScore = 0;
+	scores = [0, 0];
+	activePlayer = 0;
+	canPlay = true;
+
+	// Classes
+	diceElem.classList.add('dice__hidden');
+	player0.classList.add('player--active');
+	player1.classList.remove('player--active');
+	player0.classList.remove('player--winner');
+	player1.classList.remove('player--winner');
+};
+
+// Initialise & start the game
+initialiseGame();
 
 // Create a function to switch between the 2 players
 const switchToNextPlayer = function() {
@@ -47,7 +68,7 @@ rollDiceBtn.addEventListener('click', () => {
 
 	// Check if the diceNumber = 1
 	if (diceNumber !== 1) {
-		// Check which player is active and apply dice roll to current score
+		// Check which player is active and apply dice roll to the current score
 		playerCurrentScore += diceNumber;
 		document.querySelector(`#current--${activePlayer}`).innerText = playerCurrentScore;
 	} else {
@@ -63,7 +84,7 @@ holdScoreBtn.addEventListener('click', () => {
 	document.querySelector(`#score--${activePlayer}`).innerText = scores[activePlayer];
 
 	// Check to see if a player has reached a score of 100 or higher
-	if (scores[activePlayer] >= 20) {
+	if (scores[activePlayer] >= 100) {
 		// End/finish the game and announce a winner
 		document.querySelector(`.player--${activePlayer}`)
 			.classList.add('player--winner');
@@ -76,3 +97,6 @@ holdScoreBtn.addEventListener('click', () => {
 		switchToNextPlayer();
 	}
 });
+
+// New Game Button Functionality
+newGameBtn.addEventListener('click', initialiseGame);
